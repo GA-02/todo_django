@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .task{
+            padding: 5px;
+            margin: 5px;
+        }
+        .circle
+        {
+            display: inline-block;
+            background-color: black;
+            border: 1px solid black;
+            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+            margin-right: 5px;
+        }
+        .circle1{
+            background-color: rgba(255, 0, 0, 0.15) ;
+            border: 1px solid rgb(255, 0, 0);
+        }
+        .circle2{
+            background-color: rgba(0, 0, 255, 0.15) ;
+            border: 1px solid rgb(0, 0, 255);
+        }
+        .circle3{
+            background-color: rgba(0, 255, 0, 0.15) ;
+            border: 1px solid rgb(0, 255, 0);
+        }
+        .circle4{
+            background-color: rgba(230, 230, 230, 0.70) ;
+            border: 1px solid rgb(230, 230, 230);
+        }
+
+        .complete_task{
+            margin:50px;
+            display: block;
+            color: rgb(199, 199, 199);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Not complete tasks for {{request.user.username}}</h1>
+    {% for task in tasks%}
+        <div class="task"><div class="circle circle{{task.priority}}"></div>{{task.title}}</div>
+
+    {%endfor%}
+    <a class="complete_task" href="">Show complete tasks</a>
+
+</body>
+</html>
